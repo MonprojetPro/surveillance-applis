@@ -1,0 +1,9 @@
+{
+  "_mode_emploi": "Pour surveiller une nouvelle appli : ajouter une ligne { id, nom, url }. L'id ne change jamais (il sert de cle a la memoire d'etat).",
+  "applis": [
+    { "id": "hub", "nom": "Hub MonprojetPro", "url": "https://monprojetpro-hub.vercel.app" },
+    { "id": "app-client", "nom": "App client (Lab + One)", "url": "https://monprojetpro-client.vercel.app" },
+    { "id": "menufacile", "nom": "MenuFacile", "url": "https://menufacile.app" },
+    { "id": "guardveto", "nom": "GuardVeto", "url": "https://guardveto.vercel.app" }
+  ]
+}
