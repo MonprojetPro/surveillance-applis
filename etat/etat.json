@@ -1,0 +1,25 @@
+{
+  "applis": {
+    "hub": {
+      "echecs": 0,
+      "enPanne": false,
+      "premierEchec": null
+    },
+    "app-client": {
+      "echecs": 0,
+      "enPanne": false,
+      "premierEchec": null
+    },
+    "menufacile": {
+      "echecs": 0,
+      "enPanne": false,
+      "premierEchec": null
+    },
+    "guardveto": {
+      "echecs": 0,
+      "enPanne": false,
+      "premierEchec": null
+    }
+  },
+  "battement": "2026-11-16T13:16:52.839Z"
+}
