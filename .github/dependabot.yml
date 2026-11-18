@@ -1,8 +1,8 @@
 # T-092 etage 3 (MonProjetPro, 18-11) — failles connues des dependances.
-# Seules les CORRECTIONS DE SECURITE ouvrent des demandes de modification
-# (open-pull-requests-limit: 0 coupe les mises a jour de confort).
-# Les corrections sont regroupees en une seule demande par ecosysteme.
-# Rien ne fusionne tout seul : relecture + tests avant fusion.
+# ALERTES SEULEMENT : les corrections automatiques sont COUPEES dans les reglages
+# du depot (18-11, elles sautaient des grandes versions et cassaient le build).
+# open-pull-requests-limit: 0 = aucune mise a jour de confort non plus.
+# Les mises a jour se font a la main, avec build + tests (MonProjetPro).
 version: 2
 updates:
   - package-ecosystem: github-actions
