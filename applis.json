@@ -1,9 +1,22 @@
 {
-  "_mode_emploi": "Pour surveiller une nouvelle appli : ajouter une ligne { id, nom, url }. L'id ne change jamais (il sert de cle a la memoire d'etat).",
+  "_mode_emploi": "Registre UNIQUE des applis MonprojetPro : la surveillance (toutes les 5 min) lit id/nom/url ; le passage de maintenance du mardi (T-109) lit le bloc maintenance. Tout nouveau projet y est inscrit par SPARK (setup-projet). L'id ne change jamais (cle de la memoire d'etat). Ne JAMAIS ecrire ici la liste des failles : ce depot est public.",
+  "_champs_maintenance": "depot = owner/nom GitHub ; dossier = sous-dossier de l'appli dans le depot ('.' si racine) ; branche = branche de production ; miseEnLigne = 'git' (Vercel deploie a chaque push) ou 'cli' (mise en ligne a la main, vercel deploy --prod) ; projetVercel = nom du projet Vercel ; routeServeur = une route qui prouve que le serveur repond (code < 500 attendu).",
   "applis": [
-    { "id": "hub", "nom": "Hub MonprojetPro", "url": "https://monprojetpro-hub.vercel.app" },
-    { "id": "app-client", "nom": "App client (Lab + One)", "url": "https://monprojetpro-client.vercel.app" },
-    { "id": "menufacile", "nom": "MenuFacile", "url": "https://menufacile.app" },
-    { "id": "guardveto", "nom": "GuardVeto", "url": "https://guardveto.vercel.app" }
+    {
+      "id": "hub", "nom": "Hub MonprojetPro", "url": "https://monprojetpro-hub.vercel.app",
+      "maintenance": { "depot": "MonprojetPro/foxeo-one", "dossier": ".", "branche": "master", "miseEnLigne": "git", "projetVercel": "monprojetpro-hub", "routeServeur": "/api/cron/sync-meeting-results" }
+    },
+    {
+      "id": "app-client", "nom": "App client (Lab + One)", "url": "https://monprojetpro-client.vercel.app",
+      "maintenance": { "depot": "MonprojetPro/foxeo-one", "dossier": ".", "branche": "master", "miseEnLigne": "git", "projetVercel": "monprojetpro-client", "routeServeur": "/api/webhooks/cal-com" }
+    },
+    {
+      "id": "menufacile", "nom": "MenuFacile", "url": "https://menufacile.app",
+      "maintenance": { "depot": "MonprojetPro/menufacile", "dossier": "menufacile-v2", "branche": "main", "miseEnLigne": "cli", "projetVercel": "menufacile-v2", "routeServeur": "/api/health" }
+    },
+    {
+      "id": "guardveto", "nom": "GuardVeto", "url": "https://guardveto.vercel.app",
+      "maintenance": { "depot": "MonprojetPro/guardveto", "dossier": ".", "branche": "master", "miseEnLigne": "git", "projetVercel": "guardveto", "routeServeur": "/api/cron/rappels" }
+    }
   ]
 }

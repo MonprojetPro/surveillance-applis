@@ -1,0 +1,29 @@
+name: Prevenir MiKL
+
+# Lance par le passage de maintenance du mardi (T-109) quand une decision attend MiKL.
+# Depot PUBLIC : le message est visible par tous, il reste generique (aucun nom de faille).
+on:
+  workflow_dispatch:
+    inputs:
+      message:
+        description: 'Message court et generique (jamais de nom de bibliotheque ni de faille)'
+        required: true
+        type: string
+
+permissions:
+  contents: read
+
+jobs:
+  prevenir:
+    runs-on: ubuntu-latest
+    timeout-minutes: 2
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Envoyer la notification
+        env:
+          NTFY_TOPIC: ${{ secrets.NTFY_TOPIC }}
+          MESSAGE: ${{ inputs.message }}
+        run: node prevenir.mjs
