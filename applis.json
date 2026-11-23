@@ -1,13 +1,13 @@
 {
   "_mode_emploi": "Registre UNIQUE des applis MonprojetPro : la surveillance (toutes les 5 min) lit id/nom/url ; le passage de maintenance du mardi (T-109) lit le bloc maintenance. Tout nouveau projet y est inscrit par SPARK (setup-projet). L'id ne change jamais (cle de la memoire d'etat). Ne JAMAIS ecrire ici la liste des failles : ce depot est public.",
-  "_champs_maintenance": "depot = owner/nom GitHub ; dossier = sous-dossier de l'appli dans le depot ('.' si racine) ; branche = branche de production ; miseEnLigne = 'git' (Vercel deploie a chaque push) ou 'cli' (mise en ligne a la main, vercel deploy --prod) ; projetVercel = nom du projet Vercel ; routeServeur = une route qui prouve que le serveur repond (code < 500 attendu).",
+  "_champs_maintenance": "depot = owner/nom GitHub ; dossier = sous-dossier de l'appli dans le depot ('.' si racine) ; branche = branche de production ; miseEnLigne = 'git' (Vercel deploie a chaque push) ou 'cli' (mise en ligne a la main, vercel deploy --prod) ; projetVercel = nom du projet Vercel ; routeServeur = une route qui prouve que le serveur repond (code < 500 attendu). sentry (facultatif, a cote de url) = nom du projet Sentry ; absent = erreurs non suivies sur l ecran Sante des applis du Hub.",
   "applis": [
     {
-      "id": "hub", "nom": "Hub MonprojetPro", "url": "https://monprojetpro-hub.vercel.app",
+      "id": "hub", "nom": "Hub MonprojetPro", "url": "https://monprojetpro-hub.vercel.app", "sentry": "hub",
       "maintenance": { "depot": "MonprojetPro/foxeo-one", "dossier": ".", "branche": "master", "miseEnLigne": "git", "projetVercel": "monprojetpro-hub", "routeServeur": "/api/cron/sync-meeting-results" }
     },
     {
-      "id": "app-client", "nom": "App client (Lab + One)", "url": "https://monprojetpro-client.vercel.app",
+      "id": "app-client", "nom": "App client (Lab + One)", "url": "https://monprojetpro-client.vercel.app", "sentry": "app-client",
       "maintenance": { "depot": "MonprojetPro/foxeo-one", "dossier": ".", "branche": "master", "miseEnLigne": "git", "projetVercel": "monprojetpro-client", "routeServeur": "/api/webhooks/cal-com" }
     },
     {
