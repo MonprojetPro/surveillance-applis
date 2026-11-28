@@ -3,7 +3,7 @@
   "_champs_maintenance": "depot = owner/nom GitHub ; dossier = sous-dossier de l'appli dans le depot ('.' si racine) ; branche = branche de production ; miseEnLigne = 'git' (Vercel deploie a chaque push) ou 'cli' (mise en ligne a la main, vercel deploy --prod) ; projetVercel = nom du projet Vercel ; routeServeur = une route qui prouve que le serveur repond (code < 500 attendu). sentry (facultatif, a cote de url) = nom du projet Sentry ; absent = erreurs non suivies sur l ecran Sante des applis du Hub.",
   "applis": [
     {
-      "id": "hub", "nom": "Hub MonprojetPro", "url": "https://monprojetpro-hub.vercel.app", "sentry": "hub",
+      "id": "hub", "nom": "Hub MonprojetPro", "url": "https://monprojetpro-hub.vercel.app", "sentry": "javascript-nextjs",
       "maintenance": { "depot": "MonprojetPro/foxeo-one", "dossier": ".", "branche": "master", "miseEnLigne": "git", "projetVercel": "monprojetpro-hub", "routeServeur": "/api/cron/sync-meeting-results" }
     },
     {
